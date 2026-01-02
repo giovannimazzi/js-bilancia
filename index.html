@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Master Boolean in Web Development [152] - Assegnazione del 20/12/2025
+"
+    />
+    <meta name="author" content="Giovanni Mazzi" />
+    <title>js-bilancia</title>
+
+    <!-- Icona Progetto -->
+    <link
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚖️</text></svg>"
+    />
+
+    <script src="./main.js" defer></script>
+  </head>
+  <body>
+    <div
+      style="
+        max-width: 512px;
+        text-align: center;
+        background-color: rgba(224, 179, 124, 0.041);
+        border: 1px solid darkblue;
+        position: relative;
+      "
+    >
+      <header><h1>js-bilancia</h1></header>
+      <marquee
+        direction="right"
+        behavior="slide"
+        scrollamount="10"
+        loop="infinite"
+        style="font-size: 3rem; width: 50%; position: absolute; left: 0"
+      >
+        🎁
+      </marquee>
+      <marquee
+        direction="left"
+        behavior="slide"
+        scrollamount="10"
+        loop="infinite"
+        style="font-size: 3rem; width: 50%; position: absolute; right: 0"
+      >
+        🎁
+      </marquee>
+
+      <!-- <hr /> -->
+      <main style="margin-top: 55px">
+        <p style="font-size: 3rem">⚖️</p>
+        <hr />
+        <h2>La bilancia di Babbo Natale</h2>
+        <div style="text-align: justify; padding: 5%">
+          <p>
+            Dato un array contenente il peso degli ultimi giocattoli prodotti
+            (fornito da noi - vedete sotto), il programma chiede all'utente
+            l'operazione da svolgere, con una scelta tra:
+          </p>
+
+          <ul>
+            <li>
+              <strong>peso medio</strong>: per calcolare il peso medio di tutti
+              i giocattoli
+            </li>
+            <li>
+              <strong>peso massimo</strong>: per restituire il peso del
+              giocattolo piu' pesante
+            </li>
+            <li>
+              <strong>peso minimo</strong>: per restituire il peso del
+              giocattolo piu' leggero
+            </li>
+            <li>
+              <strong>numero di giocattoli</strong>: per restituire quanti
+              giocattoli abbiamo pesato
+            </li>
+          </ul>
+
+          <p>
+            Trovate in allegato due array da utilizzare. Il secondo array è piu'
+            complicato, va usato solo come bonus
+            <br /><br />
+
+            let pesiBase = [2, 5, 1, 1, 7, 3, 12, 6, 9, 3];
+            <br /><br />
+            let pesiBonus = [2, "5", 1, 1, "7", null, 12, 6, 9, 3];
+          </p>
+        </div>
+      </main>
+      <footer>
+        <hr />
+        <small
+          >Master Boolean in Web Development [152] - Assegnazione del 20/12/2025
+          <br />
+          🃏<strong>Giovanni Mazzi</strong>🃏</small
+        >
+      </footer>
+    </div>
+  </body>
+</html>
