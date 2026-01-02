@@ -7,8 +7,8 @@ for (; sceltaTutor !== 3; ) {
   sceltaTutor = parseInt(
     prompt(`Ciao Tutor! quale esercizio vuoi vedere:
     
-    1) Base (pesiBase = [2, 5, 1, 1, 7, 3, 12, 6, 9, 3];)
-    2) Bonus(pesiBonus = [2, "5", 1, 1, "7", null, 12, 6, 9, 3];)
+    1) Base (pesiBase = [2, 5, 1, 1, 7, 3, 12, 6, 9, 3])
+    2) Bonus(pesiBonus = [2, "5", 1, 1, "7", null, 12, 6, 9, 3])
 
     3) Esci
     
@@ -34,25 +34,27 @@ for (; sceltaTutor !== 3; ) {
     alert(selExMsg);
   }
 
-  //qui sceltaTutor può solo avere i valori: 1,2
-
   let pesi = [];
+  let output = "";
 
+  //qui sceltaTutor può solo avere i valori: 1,2
   if (sceltaTutor === 1) {
     // # BASE
     console.log(`%cESERCIZIO BASE`, "color: yellow");
     let pesiBase = [2, 5, 1, 1, 7, 3, 12, 6, 9, 3];
     pesi = pesiBase;
+    output += `ESERCIZIO BASE: \n\n`;
   }
   if (sceltaTutor === 2) {
     // # BONUS
     console.log(`%cESERCIZIO BONUS`, "color: yellowgreen");
     let pesiBonus = [2, "5", 1, 1, "7", null, 12, 6, 9, 3];
     pesi = pesiBonus;
+    output += `ESERCIZIO BONUS: \n\n`;
   }
 
-  console.log("Pesi:");
-  console.table(pesi);
+  console.log(`Pesi: ${pesi}`);
+  output += `Pesi : ${pesi}`;
 
   // # GESTIONE RICHIESTE
 
@@ -88,23 +90,63 @@ for (; sceltaTutor !== 3; ) {
     }
     //informazione sulla richiesta effettuata
     alert(selExMsg);
+    output += "\n\n" + selExMsg + "\n\n";
   }
+
+  //includo nei conteggi solamente i valori validi
+  let pesiValidi = [];
+  for (let i = 0; i < pesi.length; i++) {
+    const raw = pesi[i];
+    if (raw !== null) {
+      const num = Number(raw);
+      if (Number.isFinite(num) && num >= 0) {
+        pesiValidi.push(num);
+      }
+    }
+  }
+
+  let pesoMedio = 0;
+  let pesoMax = 0;
+  let pesoMin = pesiValidi[0];
+  const numeroGiochi = pesiValidi.length;
+
+  for (let i = 0; i < numeroGiochi; i++) {
+    pesoMedio += pesiValidi[i];
+    if (pesiValidi[i] > pesoMax) {
+      pesoMax = pesiValidi[i];
+    }
+    if (pesiValidi[i] < pesoMin) {
+      pesoMin = pesiValidi[i];
+    }
+  }
+  pesoMedio = pesoMedio / numeroGiochi;
 
   //qui richiesta può solo avere i valori: 1,2,3,4
   if (richiesta === 1) {
     // # PESO MEDIO
-    console.log(`%cPeso Medio`, "color: lightorange");
+    console.log(`%cPeso Medio`, "color: #DA582E");
+    console.log(`Peso Medio: ${pesoMedio.toFixed(2)}`);
+    output += `Peso Medio: ${pesoMedio.toFixed(2)}`;
   }
   if (richiesta === 2) {
     // # PESO MASSIMO
     console.log(`%cPeso Massimo`, "color: orange");
+    console.log(`Peso Massimo: ${pesoMax}`);
+    output += `Peso Massimo: ${pesoMax}`;
   }
   if (richiesta === 3) {
     // # PESO MINIMO
     console.log(`%cPeso Minimo`, "color: darkorange");
+    console.log(`Peso Minimo: ${pesoMin}`);
+    output += `Peso Minimo: ${pesoMin}`;
   }
   if (richiesta === 4) {
     // # NUMERO GIOCATTOLI
     console.log(`%cNumero Giocattoli`, "color: orangered");
+    console.log(`Numero Giocattoli: ${numeroGiochi}`);
+    output += `Numero Giocattoli: ${numeroGiochi}`;
   }
+
+  //messaggio in uscita
+  alert(output);
 }
